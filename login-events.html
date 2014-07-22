@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hello.js - Login Events</title>	
+</head>
+<body>
+	<h1>hello.js - Login Events</h1>
+	<button onclick="login('facebook')">Login Facebook</button>
+	
+<button style="float:right;" onclick="logout('facebook')">Logout Facebook</button>
+<button style="float:right;" onclick="this.nextElementSibling.innerHTML='';">Clear</button>
+<pre class="response"></pre>
+
+
+<script class="pre" src="hello.js"></script>
+<script src="facebook.js"></script>
+
+
+<script class="pre">
+hello.on( "auth", function(e){
+	log( "auth", e );
+});
+hello.on( "auth.failed", function(e){
+	log( "auth.failed", e );
+});
+hello.on( "auth.login", function(e){
+	log( "auth.login", e );
+});
+hello.on( "auth.logout", function(e){
+	log( "auth.logout", e );
+});
+hello.init( {'facebook' : '1513824715502296'});
+</script>
+
+<script class="pre">
+// Signin button click handler
+function login(network){
+	hello.login( network, function(e){
+		log("callback",e);
+	});
+}
+function logout (network) {
+		hello( network ).logout(function(){
+			alert("Signed out "+network);
+		});
+}
+</script>
+
+<script>
+function log(name,obj){
+	document.querySelector('.response').appendChild(document.createTextNode(name + ':' + JSON.stringify(obj,true,2)));	
+}
+</script>
+
+
+</body>
+</html>
