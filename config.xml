@@ -55,6 +55,11 @@
 
     <!-- Plugins can also be added here. -->
     <gap:plugin name="org.apache.cordova.inappbrowser" />
+
+    <gap:plugin name="com.phonegap.plugins.facebookconnect">
+    <param name="APP_ID" value="1513824715502296" />
+    <param name="APP_NAME" value="TestLogin" />
+    </gap:plugin>
     <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
